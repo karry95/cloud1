@@ -1,0 +1,12 @@
+<div vlass="container">
+<div class="card">
+  <div class="card-body">
+  
+
+<h1>Editing Note</h1>
+<%= render 'form' %>
+<button type="button" class="btn btn-outline-success"> <%= link_to 'Show', patient_note_path(@patient, @note) %></button>
+<button type="button" class="btn btn-outline-secondary"><%= link_to 'Back', patient_notes_path(@patient) %> </button>
+ 
+
+</div></div></div>

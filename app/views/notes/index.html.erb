@@ -1,0 +1,37 @@
+<br>
+<div class="container">
+    <div class="card">
+  <div class="card-body">
+      <div class="col-sm">
+        <div class="card-header">
+
+<h1>Records of <%= @patient.name %></h1>
+<table>
+<tr>
+<th>Notes details</th>
+</tr>
+<% for note in @notes %>
+<tr>
+
+<td><%= note.details %></td>
+<td>
+<button type="button" class="btn btn-outline-info"><%= link_to 'Show', patient_note_path(@patient, note)
+%></button></td>
+<td> <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_patient_note_path(@patient, note)
+%></button></td>
+<td><button type="button" class="btn btn-outline-danger"><%= link_to 'Delete', patient_note_path(@patient, note),
+data: { confirm: 'Are you sure?' } %></button></td>
+</tr>
+<% end %>
+</table>
+<br />
+<button type="button" class="btn btn-primary"><%= link_to 'New note', new_patient_note_path(@patient) %> </button>
+<button type="button" class="btn btn-outline-secondary"> <%= link_to 'Back to Patient', @patient %></button>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>

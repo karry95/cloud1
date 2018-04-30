@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SmartdoctorApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p> 
+<div class="container" >
+   
+    
+<nav class="navbar navbar-light" style="background-color: #7aacff;">
+     <div class="inner">
+  <a class="navbar-brand"  class="nav-collapse" id="nav-collapse" >SmartDoctor</a>
+
+        <%= link_to 'Home |', homes_index_path %> 
+        <%= link_to 'Patients |', patients_path %>  
+        <%= link_to 'Appointments |', doctors_path %> 
+        <%= link_to 'Hospitals', hospitals_path %>
+           
+
+<button type="button" class="btn btn-outline-dark" ><%= link_to 'Add Patient', new_patient_path %></button>
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Add Appointment', new_doctor_path %></button>
+</div>
+     
+
+<div>
+    <p>
+     <%= form_tag patients_path, :method => 'get' do %>
+     <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search 🔍", :name => nil %>
+       
+     </p>
+     
+     
+ <% end %></div>
+
+  </nav>
+  
+
+    <%= yield %>
+    </div><br>
+    <div align="center">
+      <button type="button" class="btn btn-dark"> <%= render "devise/menu/registration_items" %> </button>
+<button  type="button" class="btn btn-dark> <%= render 'devise/menu/login_items' %> </button></div>
+  </body>
+</html>

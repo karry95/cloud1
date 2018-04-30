@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @hospital.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @hospital.address %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @hospital.number %>
+</p>
+
+<button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_hospital_path(@hospital) %></button>
+<button type="button" class="btn btn-outline-secondary"><%= link_to 'Back', hospitals_path %></button>

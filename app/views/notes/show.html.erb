@@ -1,0 +1,44 @@
+<div class="container">
+<div class="card">
+  <div class="card-body">
+      
+     <div class="col-sm">
+        <div class="card-header">
+
+<p id="notice"><%= notice %></p>
+
+  
+<h2> Record of patient: <%= @patient.name%></h2>
+
+ <p> <strong>Name:</strong> <%= @patient.name %> </p>
+
+ <p> <strong>Contact details:</strong> <%= @patient.contact %></p>
+
+ <p> <strong>Date Of Birth:</strong> <%= @patient.date_of_birth %></p>
+
+ <p> <strong>Address:</strong> <%= @patient.address %> </p>
+
+ <p> <strong>Patient Injury:</strong> <%= @patient.injury %> </p>
+
+ <p> <strong>Doctors Action:</strong> <%= @patient.action %> </p>
+
+ <!-- Display the notes of a patient -->
+  <div class="card">
+  <div class="card-body" >
+<h2>Notes</h2>
+<% @patient.notes.each do |note| %>
+
+
+<p>
+<b>Note details:</b>
+<%= note.details %>
+</p>
+
+<% end %>
+<button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_patient_path(@patient) %> </button>
+<button type="button" class="btn btn-outline-secondary"><%= link_to 'Back', patients_path %> </button>
+<button type="button" class="btn btn-outline-success"> <%= link_to 'Show Notes', patient_notes_path(@patient) %></button>
+
+
+</div></div></div></div></div>
+</div></div>

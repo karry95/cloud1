@@ -1,0 +1,47 @@
+<br><div class="card">
+  <div class="card-body">
+    <div class="alert alert-success" role="alert">
+  <p id="notice"><%= notice %></p>
+</div>
+
+<h2> Record details of: <%= @patient.name%></h2>
+
+<br>
+<p>
+  <strong>Name:</strong>
+  <%= @patient.name %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @patient.contact %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @patient.date_of_birth %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @patient.address %>
+</p>
+
+<p>
+  <strong>Injury:</strong>
+  <%= @patient.injury %>
+</p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @patient.action %>
+</p>
+
+<button><%= link_to 'Edit', edit_patient_path(@patient) %> </button>
+<button><%= link_to 'Back', patients_path %> </button>
+<button><%= link_to 'View Requests', requests_path %> </button>
+<button><%= link_to'Show Notes', patient_notes_path(@patient) %> </button>
+<button><%= link_to 'New Request', new_request_path %></button>
+
+
+</div></div>

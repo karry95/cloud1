@@ -1,0 +1,31 @@
+<h1>Requests#index</h1>
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+     
+      <th>Request</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+       
+        <td><%= request.request %></td>
+        
+        <td><button type="button" class="btn btn-outline-info"><%= link_to 'Show', request %></button></td>
+        <td><button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_request_path(request) %></button></td>
+        <td><button type="button" class="btn btn-outline-danger"><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<td><button><%= link_to 'New Request', new_request_path %></button></td>
+<button><%= link_to 'Back', patients_path %> </button>
+
