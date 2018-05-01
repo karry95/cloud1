@@ -4,7 +4,4 @@ class PatientDecorator
     def initialize(component)
         @component = component
     end
-    
-   def @patients = Patient.search(params[:search])
-    end
 end
