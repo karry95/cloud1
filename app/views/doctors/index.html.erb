@@ -41,7 +41,7 @@
 
 <br>
  
-<button type="button" class="btn btn-outline-success"><%= link_to 'New Appointment', new_doctor_path %></button></div>
+<button type="button" class="btn btn-outline-success"><%= link_to 'New Appointment', new_doctor_path %></button><%= link_to " Download Appointments PDF",doctors_path(format: 'pdf') %></div>
 <br>
 <p><b> Upcoming : <%= @doctors.size %> scheduled appointment</b></p>
 
@@ -53,6 +53,9 @@
     <li><%= doctor.patient %></li>
     <% end %>
   </ul></div>
+<%= area_chart Doctor.group(:created_at).maximum(:time) %>
+<%= pie_chart Doctor.group(:time).count %>
+
   
   
   </div>

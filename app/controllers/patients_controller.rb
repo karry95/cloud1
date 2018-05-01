@@ -8,8 +8,26 @@ class PatientsController < ApplicationController
     @patients = Patient.search(params[:search])
     
     
-    
-end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = PatientPdf.new(@patients)
+        send_data pdf.render, filename: 'Patients.pdf', type: 'application/pdf', disposition: "inline"
+      end
+    end
+  end
+  
+  
+  
+
+#custom gem try Penicillin -> results antibiotic A
+ def isallergic
+   @input1 = params[:search_string]
+   @result = Check.runcheck(@input1)
+   flash[:notice] =@result
+   redirect_to request.referrer
+ end
+
 
   # GET /patients/1
   # GET /patients/1.json
@@ -23,7 +41,7 @@ end
 
   # GET /patients/1/edit
   def edit
-end
+  end
 
   # POST /patients
   # POST /patients.json
@@ -68,6 +86,7 @@ end
       format.json { head :no_content }
     end
   end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_patient
@@ -78,5 +97,4 @@ end
     def patient_params
       params.require(:patient).permit(:name, :contact, :date_of_birth, :address, :injury, :action)
     end
-  end
-
+end

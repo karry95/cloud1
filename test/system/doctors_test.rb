@@ -12,13 +12,13 @@ class DoctorsTest < ApplicationSystemTestCase
 
   test "creating a Doctor" do
     visit doctors_url
-    click_on "New Doctor"
+    click_on "New Appointment"
 
     fill_in "Date", with: @doctor.date
     fill_in "Details", with: @doctor.details
     fill_in "Patient", with: @doctor.patient
     fill_in "Time", with: @doctor.time
-    click_on "Create Doctor"
+    click_on "Create Appointment"
 
     assert_text "Doctor was successfully created"
     click_on "Back"

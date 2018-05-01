@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
-  get 'appointments/index'
-  get 'appointments/show'
-  get 'appointments/edit'
-  get 'appointments/new'
+  
   get 'requests/index'
   get 'requests/new'
   get 'requests/edit'
   get 'requests/show'
+
+  post '/validate', :controller=>'patients', :action=>'isallergic'
   resources :hospitals
   resources :requests
   resources :doctors
-  resources :appointments
   get 'homes/index'
   devise_for :users
   resources :users

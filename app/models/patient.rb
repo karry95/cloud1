@@ -2,7 +2,7 @@ class Patient < ActiveRecord::Base
 validates :name, presence: true,
                     length: { minimum: 5 }
 
-belongs_to :appointment, :optional => true
+belongs_to :doctor, :optional => true
 has_many :notes
 has_many :requests
 

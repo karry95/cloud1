@@ -6,7 +6,16 @@ class DoctorsController < ApplicationController
   def index
     @doctors = Doctor.all
    # @presenter = Doctors::IndexPresenter.new
+   
+     respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = AppointmentPdf.new(@doctors)
+        send_data pdf.render, filename: 'Appointments.pdf', type: 'application/pdf', disposition: "inline"
+      end
+    end
   end
+
 
   # GET /doctors/1
   # GET /doctors/1.json

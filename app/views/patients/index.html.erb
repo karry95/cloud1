@@ -1,18 +1,28 @@
-<p id="notice"><%= notice %></p>
-<div class="container">
-    <div class="card">
-  <div class="card-body">
-       <div class="row">
-    <div class="col-sm">
-        <div class="card-header">
-<h3>Patients</h3>
 
 <br>
 
+<div class="container">
+    <div class="card">
+  <div class="card-body">
+      <div class="row">
+    <div class="col-sm">
+        <div class="card-header">
+         
+        
+          
+<h3>Patients </h3>
+<br>
 
+ 
+    <select align= class="form-control form-control-sm">
+  <% @patients.each do |patient| %>
+  <option>Default select</option>
+  <option>Alphabetically</option>
+  <option>Recent</option>
+  <% end %>
+</select>
 <table>
-  <thead>
-    <tr>
+      <tr>
       <th><font color="navy">Patients Name  </th>
       <th><font color="navy">Contact  </th>
       <th><font color="navy">Date of birth  </th>
@@ -41,13 +51,36 @@
   </tbody>
 </table>
 
+
 <br>
 
 <button type="button" class="btn btn-outline-success"><%= link_to 'New Patient', new_patient_path %></button>
 
+<%= link_to " Download Patients PDF",patients_path(format: 'pdf') %>
+<br>
+
+</div></br>
+ <div class="row">
+    <div class="col-sm">
+        <div class="card-header">
+<h4>Find Allergy alternatives:</h4>
+<%= form_tag "/validate" do %>
+<%= text_field_tag :search_string %>
+<%= submit_tag "Search" %>
+
+
+
+</div><p class="alert alert-secondary"  id="notice"><%= notice %></p></div></div>
+
+<% end %>
+
 </div>
 </div>
 </div>
+<h4 align="center"> Injury's Reports for the week </h4><br>
+
+<%= pie_chart Patient.group(:injury).count %>
+<br>
 </div>
-</div>
+
 </div>
