@@ -5,7 +5,7 @@
     <div class="card">
   <div class="card-body">
       <div class="row">
-    <div class="col-sm">
+    <div class="col-sm">  
         <div class="card-header">
          
         
@@ -14,13 +14,15 @@
 <br>
 
  
-    <select align= class="form-control form-control-sm">
-  <% @patients.each do |patient| %>
+<select align= class="form-control form-control-sm">
   <option>Default select</option>
   <option>Alphabetically</option>
   <option>Recent</option>
-  <% end %>
+ 
 </select>
+<!--%= f.label :injury %>-->
+      <!--%= f.search_field :injury %>-->
+
 <table>
       <tr>
       <th><font color="navy">Patients Name  </th>
@@ -63,6 +65,9 @@
  <div class="row">
     <div class="col-sm">
         <div class="card-header">
+          
+          
+          
 <h4>Find Allergy alternatives:</h4>
 <%= form_tag "/validate" do %>
 <%= text_field_tag :search_string %>

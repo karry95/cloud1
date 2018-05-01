@@ -54,7 +54,6 @@
     <% end %>
   </ul></div>
 <%= area_chart Doctor.group(:created_at).maximum(:time) %>
-<%= pie_chart Doctor.group(:time).count %>
 
   
   

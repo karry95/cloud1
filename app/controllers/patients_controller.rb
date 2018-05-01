@@ -7,6 +7,8 @@ class PatientsController < ApplicationController
     @patients = Patient.all
     @patients = Patient.search(params[:search])
     
+   # @q = Patient.ransack(params[:q])
+   # @patient = @q.result.includes(:injury)
     
     respond_to do |format|
       format.html
